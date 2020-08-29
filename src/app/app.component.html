@@ -1,6 +1,6 @@
 <div class="upn-form">
-  <app-upn-form></app-upn-form>
+  <app-upn-form (qrCodeValueChanged)="qrCodeValueChanged($event)"></app-upn-form>
 </div>
 <div class="upn-qrcode">
-  <app-upn-qrcode></app-upn-qrcode>
+  <app-upn-qrcode [value]="qrCodeValue"></app-upn-qrcode>
 </div>

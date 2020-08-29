@@ -9,12 +9,8 @@ import {NgxQrcodeVersionType} from '@techiediaries/ngx-qrcode/lib/qrcode.types';
 })
 export class UpnQrcodeComponent implements OnInit {
 
-  @Input()
-  get upnQrCodeString(): string { return this.value; }
-  set upnQrCodeString(upnQrCodeString: string) { this.value = upnQrCodeString; }
-
+  @Input() value = 'testing it out';
   elementType = NgxQrcodeElementTypes.CANVAS;
-  value = 'testing it out';
   eccLevel = NgxQrcodeErrorCorrectionLevels.MEDIUM;
   version = '15' as NgxQrcodeVersionType;
   scale = 6;
