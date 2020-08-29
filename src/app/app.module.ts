@@ -8,9 +8,9 @@ import { UpnFormComponent } from './upn-form/upn-form.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { UpnQrcodeComponent } from './upn-qrcode/upn-qrcode.component';
-import {QrCodeModule} from 'ng-qrcode';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
 
 @NgModule({
   declarations: [
@@ -24,9 +24,9 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    QrCodeModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    NgxQRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
