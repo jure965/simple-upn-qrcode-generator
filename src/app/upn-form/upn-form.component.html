@@ -1,5 +1,79 @@
-<mat-form-field appearance="fill">
-  <mat-label>Input</mat-label>
-  <input matInput>
-</mat-form-field>
+<form [formGroup]="upnQrForm" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Ime plačnika</mat-label>
+      <input matInput formControlName="payerName">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Naslov plačnika</mat-label>
+      <input matInput formControlName="payerAddress">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Kraj plačnika</mat-label>
+      <input matInput formControlName="payerCity">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Znesek</mat-label>
+      <input matInput formControlName="amount">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Koda namena</mat-label>
+      <input matInput formControlName="purposeCode">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Namen plačila</mat-label>
+      <input matInput formControlName="purpose">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>IBAN prejemnika</mat-label>
+      <input matInput formControlName="payeeIBAN">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Model reference</mat-label>
+      <input matInput formControlName="payeeReferenceModel">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Referenca</mat-label>
+      <input matInput formControlName="payeeReference">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Ime prejemnika</mat-label>
+      <input matInput formControlName="payeeName">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Naslov prejemnika</mat-label>
+      <input matInput formControlName="payeeAddress">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Kraj prejemnika</mat-label>
+      <input matInput formControlName="payeeCity">
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-raised-button type="submit">Generate</button>
+  </div>
+</form>
+
 
