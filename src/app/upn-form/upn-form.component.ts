@@ -22,9 +22,9 @@ export class UpnFormComponent implements OnInit {
     paymentDue: ['', [Validators.maxLength(10), Validators.minLength(10)]],
     payeeIBAN: ['', [Validators.required, Validators.maxLength(40)]],
     payeeReference: ['', [Validators.required, Validators.maxLength(30)]],
-    payeeName: ['', [Validators.required, Validators.maxLength(33)]],
-    payeeAddress: ['', [Validators.required, Validators.maxLength(33)]],
-    payeeCity: ['', [Validators.required, Validators.maxLength(33)]],
+    payeeName: ['', [Validators.maxLength(33)]],
+    payeeAddress: ['', [Validators.maxLength(33)]],
+    payeeCity: ['', [Validators.maxLength(33)]],
   });
 
   constructor(
