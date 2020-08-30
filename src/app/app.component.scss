@@ -1,17 +1,7 @@
-.upn-header,
-.upn-footer,
 .upn-form,
-.upn-qrcode {
+.upn-qrcode,
+.upn-string {
   padding: 15px;
-}
-
-.upn-header {
-  padding-bottom: 0;
-}
-
-.upn-footer {
-  padding-bottom: 0;
-  padding-top: 0;
 }
 
 .upn-main {
@@ -19,7 +9,6 @@
 }
 
 .upn-string {
-  padding: 15px;
   margin: 15px;
   border: 1px black solid;
   font-family: monospace;

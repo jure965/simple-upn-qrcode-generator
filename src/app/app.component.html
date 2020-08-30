@@ -1,6 +1,3 @@
-<div class="upn-header">
-  <p>Izdelava UPN QR kode na podlagi vnosnega obrazca</p>
-</div>
 <div class="upn-main">
   <div class="upn-form">
     <app-upn-form (qrCodeValueChanged)="qrCodeValueChanged($event)"></app-upn-form>
@@ -9,14 +6,4 @@
   <div class="upn-qrcode">
     <app-upn-qrcode [value]="qrCodeValue" *ngIf="qrCodeValue"></app-upn-qrcode>
   </div>
-</div>
-<div class="upn-footer">
-  <p>Viri:</p>
-  <ul>
-    <li>
-      <a href="https://www.upn-qr.si/uploads/files/NavodilaZaProgramerjeUPNQR.pdf">
-        https://www.upn-qr.si/uploads/files/NavodilaZaProgramerjeUPNQR.pdf
-      </a>
-    </li>
-  </ul>
 </div>
