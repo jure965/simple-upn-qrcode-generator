@@ -20,7 +20,7 @@
   <div>
     <mat-form-field appearance="fill">
       <mat-label>Znesek</mat-label>
-      <input matInput formControlName="amount">
+      <input matInput formControlName="amount" (blur)="processAmount()">
     </mat-form-field>
   </div>
   <div>

@@ -1,10 +1,18 @@
+.upn-main {
+  display: flex;
+}
+
 .upn-form {
-  display: inline-block;
-  padding-left: 30px;
-  padding-top: 30px;
-  padding-right: 30px;
+  padding: 15px;
 }
 
 .upn-qrcode {
-  display: inline-block;
+  padding: 15px;
+}
+
+.upn-string {
+  padding: 15px;
+  margin: 15px;
+  border: 1px black solid;
+  font-family: monospace;
 }

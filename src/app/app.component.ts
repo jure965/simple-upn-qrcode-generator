@@ -14,7 +14,6 @@ export class AppComponent implements OnInit {
   }
 
   qrCodeValueChanged(e): void {
-    console.log(e);
     this.qrCodeValue = e;
   }
 }

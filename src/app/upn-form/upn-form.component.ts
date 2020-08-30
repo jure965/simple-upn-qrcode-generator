@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {UpnQr} from '../interfaces/upn-qr';
+import parseMoney from 'parse-money';
 
 @Component({
   selector: 'app-upn-form',
@@ -38,15 +39,16 @@ export class UpnFormComponent implements OnInit {
       console.log('form is invalid, not generating qr code');
       return;
     }
-
-
     this.qrCodeValueChanged.emit(this.generateQrCodeValue());
   }
 
   generateQrCodeValue(): string {
-    function getAmount(amount: number): string {
-      // TODO: ensure 11 digits without decimal points, rightmost 2 digits represent two decimals
-      return amount.toString();
+    function getAmount(amount: string): string {
+      let str = parseMoney(amount.toString()).amount.toFixed(2).split('.').join('');
+      while (str.length < 11) {
+        str = '0' + str;
+      }
+      return str;
     }
 
     function getChecksum(d: UpnQr): string {
@@ -84,5 +86,10 @@ export class UpnFormComponent implements OnInit {
       + data.payerAddress + data.payerCity + data.amount + data.paymentDate + data.priority + data.purposeCode + data.purpose
       + data.paymentDue + data.payeeIBAN + data.payeeReference + data.payeeName + data.payeeAddress + data.payeeCity
       + data.checksum;
+  }
+
+  processAmount(): void {
+    const amount = parseMoney(this.upnQrForm.value.amount.toString()).amount.toFixed(2);
+    this.upnQrForm.patchValue({amount});
   }
 }

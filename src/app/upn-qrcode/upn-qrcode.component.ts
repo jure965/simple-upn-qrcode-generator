@@ -14,6 +14,7 @@ export class UpnQrcodeComponent implements OnInit {
   eccLevel = NgxQrcodeErrorCorrectionLevels.MEDIUM;
   version = '15' as NgxQrcodeVersionType;
   scale = 6;
+  margin = 0;
 
   constructor() { }
 
