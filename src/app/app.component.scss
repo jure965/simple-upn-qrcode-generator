@@ -1,13 +1,21 @@
-.upn-main {
-  display: flex;
-}
-
-.upn-form {
-  padding: 15px;
-}
-
+.upn-header,
+.upn-footer,
+.upn-form,
 .upn-qrcode {
   padding: 15px;
+}
+
+.upn-header {
+  padding-bottom: 0;
+}
+
+.upn-footer {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.upn-main {
+  display: flex;
 }
 
 .upn-string {

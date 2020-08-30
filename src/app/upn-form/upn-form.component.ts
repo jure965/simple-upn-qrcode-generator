@@ -16,9 +16,9 @@ export class UpnFormComponent implements OnInit {
     payerName: ['', [Validators.maxLength(33)]],
     payerAddress: ['', [Validators.maxLength(33)]],
     payerCity: ['', [Validators.maxLength(33)]],
-    amount: ['00000000000', [Validators.required, Validators.maxLength(11)]],
+    amount: ['', [Validators.required, Validators.maxLength(11)]],
     purposeCode: ['GDSV', [Validators.required, Validators.maxLength(4), Validators.minLength(4)]],
-    purpose: ['Prodaja ali nakup blaga ali storitve', [Validators.required, Validators.maxLength(42)]],
+    purpose: ['Kupoprodaja blaga in storitve', [Validators.required, Validators.maxLength(42)]],
     paymentDue: ['', [Validators.maxLength(10), Validators.minLength(10)]],
     payeeIBAN: ['', [Validators.required, Validators.maxLength(40)]],
     payeeReference: ['', [Validators.required, Validators.maxLength(30)]],
@@ -95,5 +95,12 @@ export class UpnFormComponent implements OnInit {
   processAmount(): void {
     const amount = parseMoney(this.upnQrForm.value.amount.toString()).amount.toFixed(2);
     this.upnQrForm.patchValue({amount});
+  }
+
+  setUppercase(): void {
+    const purposeCode = this.upnQrForm.value.purposeCode.toString().toUpperCase();
+    const payeeIBAN = this.upnQrForm.value.payeeIBAN.toString().toUpperCase().split(' ').join('');
+    const payeeReference = this.upnQrForm.value.payeeReference.toString().toUpperCase().split(' ').join('');
+    this.upnQrForm.patchValue({purposeCode, payeeIBAN, payeeReference});
   }
 }
