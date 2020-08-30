@@ -1,17 +1,17 @@
 <form [formGroup]="upnQrForm" (ngSubmit)="onSubmit()">
-  <div>
+  <div *ngIf="showAll">
     <mat-form-field appearance="fill">
       <mat-label>Ime plačnika</mat-label>
       <input matInput formControlName="payerName">
     </mat-form-field>
   </div>
-  <div>
+  <div *ngIf="showAll">
     <mat-form-field appearance="fill">
       <mat-label>Naslov plačnika</mat-label>
       <input matInput formControlName="payerAddress">
     </mat-form-field>
   </div>
-  <div>
+  <div *ngIf="showAll">
     <mat-form-field appearance="fill">
       <mat-label>Kraj plačnika</mat-label>
       <input matInput formControlName="payerCity">
@@ -35,7 +35,7 @@
       <input matInput formControlName="purpose">
     </mat-form-field>
   </div>
-  <div>
+  <div *ngIf="showAll">
     <mat-form-field appearance="fill">
       <mat-label>Datum plačila</mat-label>
       <input matInput formControlName="paymentDue">
@@ -53,26 +53,31 @@
       <input matInput formControlName="payeeReference" (blur)="setUppercase()">
     </mat-form-field>
   </div>
-  <div>
+  <div *ngIf="showAll">
     <mat-form-field appearance="fill">
       <mat-label>Ime prejemnika</mat-label>
       <input matInput formControlName="payeeName">
     </mat-form-field>
   </div>
-  <div>
+  <div *ngIf="showAll">
     <mat-form-field appearance="fill">
       <mat-label>Naslov prejemnika</mat-label>
       <input matInput formControlName="payeeAddress">
     </mat-form-field>
   </div>
-  <div>
+  <div *ngIf="showAll">
     <mat-form-field appearance="fill">
       <mat-label>Kraj prejemnika</mat-label>
       <input matInput formControlName="payeeCity">
     </mat-form-field>
   </div>
-  <div>
-    <button mat-raised-button type="submit">Generiraj</button>
+  <div class="upn-button-flex">
+    <div>
+      <mat-checkbox (change)="showAllChange()">Prikaži vsa polja</mat-checkbox>
+    </div>
+    <div>
+      <button mat-raised-button type="submit">Generiraj</button>
+    </div>
   </div>
 </form>
 

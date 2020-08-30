@@ -18,7 +18,7 @@ export class UpnFormComponent implements OnInit {
     payerCity: ['', [Validators.maxLength(33)]],
     amount: ['', [Validators.required, Validators.maxLength(11)]],
     purposeCode: ['GDSV', [Validators.required, Validators.maxLength(4), Validators.minLength(4)]],
-    purpose: ['Kupoprodaja blaga in storitve', [Validators.required, Validators.maxLength(42)]],
+    purpose: ['', [Validators.required, Validators.maxLength(42)]],
     paymentDue: ['', [Validators.maxLength(10), Validators.minLength(10)]],
     payeeIBAN: ['', [Validators.required, Validators.maxLength(34)]],
     payeeReference: ['', [Validators.required, Validators.maxLength(26)]],
@@ -26,6 +26,7 @@ export class UpnFormComponent implements OnInit {
     payeeAddress: ['', [Validators.maxLength(33)]],
     payeeCity: ['', [Validators.maxLength(33)]],
   });
+  showAll = false;
 
   constructor(
     private fb: FormBuilder,
@@ -102,5 +103,9 @@ export class UpnFormComponent implements OnInit {
     const payeeIBAN = this.upnQrForm.value.payeeIBAN.toString().toUpperCase().split(' ').join('');
     const payeeReference = this.upnQrForm.value.payeeReference.toString().toUpperCase().split(' ').join('');
     this.upnQrForm.patchValue({purposeCode, payeeIBAN, payeeReference});
+  }
+
+  showAllChange(): void {
+    this.showAll = !this.showAll;
   }
 }

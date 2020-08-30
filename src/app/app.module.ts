@@ -11,6 +11,7 @@ import { UpnQrcodeComponent } from './upn-qrcode/upn-qrcode.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
     MatInputModule,
     ReactiveFormsModule,
     MatButtonModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
