@@ -52,10 +52,14 @@ export class UpnFormComponent implements OnInit {
     }
 
     function getChecksum(d: UpnQr): string {
-      return (d.leadingWord.length + d.payerIBAN.length + d.deposit.length + d.withdraw.length + d.payerReference.length
+      let checksum = (d.leadingWord.length + d.payerIBAN.length + d.deposit.length + d.withdraw.length + d.payerReference.length
         + d.payerName.length + d.payerAddress.length + d.payerCity.length + d.amount.length + d.paymentDate.length
         + d.priority.length + d.purposeCode.length + d.purpose.length + d.paymentDue.length + d.payeeIBAN.length
         + d.payeeReference.length + d.payeeName.length + d.payeeAddress.length + d.payeeCity.length).toString();
+      while (checksum.length < 3) {
+        checksum = '0' + checksum;
+      }
+      return checksum;
     }
 
     const data = {
