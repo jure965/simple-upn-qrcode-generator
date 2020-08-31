@@ -48,7 +48,11 @@
     </mat-form-field>
   </div>
   <div>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="payee-reference-model">
+      <mat-label>Model</mat-label>
+      <input matInput formControlName="payeeReferenceModel" (blur)="setUppercase()">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="payee-reference">
       <mat-label>Referenca</mat-label>
       <input matInput formControlName="payeeReference" (blur)="setUppercase()">
     </mat-form-field>
