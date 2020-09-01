@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {UpnQr} from '../interfaces/upn-qr';
 import parseMoney from 'parse-money';
+import {LocalStorageService} from 'ngx-webstorage';
 
 @Component({
   selector: 'app-upn-form',
@@ -31,16 +32,23 @@ export class UpnFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private localSt: LocalStorageService,
   ) {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const retrieve = this.localSt.retrieve('lastGeneration');
+    if (retrieve) {
+      this.upnQrForm.setValue(retrieve);
+    }
+  }
 
   onSubmit(): void {
     if (this.upnQrForm.invalid) {
       console.log('form is invalid, not generating qr code');
       return;
     }
+    this.localSt.store('lastGeneration', this.upnQrForm.value);
     this.qrCodeValueChanged.emit(this.generateQrCodeValue());
   }
 

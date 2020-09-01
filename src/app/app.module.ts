@@ -12,6 +12,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {NgxWebstorageModule} from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     ReactiveFormsModule,
     MatButtonModule,
     NgxQRCodeModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    NgxWebstorageModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
