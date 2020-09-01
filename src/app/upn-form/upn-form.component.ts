@@ -138,5 +138,6 @@ export class UpnFormComponent implements OnInit {
 
   clearForm(): void {
     this.upnQrForm.reset(this.upnQrFormDefault);
+    this.qrCodeValueChanged.emit(null);
   }
 }
