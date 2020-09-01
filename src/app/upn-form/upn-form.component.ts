@@ -19,16 +19,32 @@ export class UpnFormComponent implements OnInit {
     payerCity: ['', [Validators.maxLength(33)]],
     amount: ['', [Validators.required, Validators.maxLength(11)]],
     purposeCode: ['GDSV', [Validators.required, Validators.maxLength(4), Validators.minLength(4)]],
-    purpose: ['', [Validators.required, Validators.maxLength(42)]],
+    purpose: ['Kupoprodaja blaga in storitve', [Validators.required, Validators.maxLength(42)]],
     paymentDue: ['', [Validators.maxLength(10), Validators.minLength(10)]],
-    payeeIBAN: ['', [Validators.required, Validators.maxLength(34)]],
-    payeeReferenceModel: ['SI', [Validators.required, Validators.maxLength(4), Validators.minLength(4)]],
+    payeeIBAN: ['SI56', [Validators.required, Validators.maxLength(34)]],
+    payeeReferenceModel: ['SI00', [Validators.required, Validators.maxLength(4), Validators.minLength(4)]],
     payeeReference: ['', [Validators.required, Validators.maxLength(22)]],
     payeeName: ['', [Validators.maxLength(33)]],
     payeeAddress: ['', [Validators.maxLength(33)]],
     payeeCity: ['', [Validators.maxLength(33)]],
   });
   showAll = false;
+
+  upnQrFormDefault = {
+    payerName: '',
+    payerAddress: '',
+    payerCity: '',
+    amount: '',
+    purposeCode: 'GDSV',
+    purpose: 'Kupoprodaja blaga in storitve',
+    paymentDue: '',
+    payeeIBAN: 'SI56',
+    payeeReferenceModel: 'SI00',
+    payeeReference: '',
+    payeeName: '',
+    payeeAddress: '',
+    payeeCity: '',
+  };
 
   constructor(
     private fb: FormBuilder,
@@ -103,8 +119,10 @@ export class UpnFormComponent implements OnInit {
   }
 
   processAmount(): void {
-    const amount = parseMoney(this.upnQrForm.value.amount.toString()).amount.toFixed(2);
-    this.upnQrForm.patchValue({amount});
+    if (this.upnQrForm.value.amount) {
+      const amount = parseMoney(this.upnQrForm.value.amount.toString()).amount.toFixed(2);
+      this.upnQrForm.patchValue({amount});
+    }
   }
 
   setUppercase(): void {
@@ -116,5 +134,9 @@ export class UpnFormComponent implements OnInit {
 
   showAllChange(): void {
     this.showAll = !this.showAll;
+  }
+
+  clearForm(): void {
+    this.upnQrForm.reset(this.upnQrFormDefault);
   }
 }
