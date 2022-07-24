@@ -1,13 +1,14 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
-import {UpnQr} from '../interfaces/upn-qr';
+import {UpnQr} from '../upn-qr';
 import parseMoney from 'parse-money';
 import {LocalStorageService} from 'ngx-webstorage';
+
 
 @Component({
   selector: 'app-upn-form',
   templateUrl: './upn-form.component.html',
-  styleUrls: ['./upn-form.component.scss']
+  styleUrls: ['./upn-form.component.scss'],
 })
 export class UpnFormComponent implements OnInit {
 
@@ -70,11 +71,11 @@ export class UpnFormComponent implements OnInit {
 
   generateQrCodeValue(): string {
     function getAmount(amount: string): string {
-      let str = parseMoney(amount.toString()).amount.toFixed(2).split('.').join('');
-      while (str.length < 11) {
+      let str = parseMoney(amount.toString())?.amount.toFixed(2).split('.').join('');
+      while (str && str.length < 11) {
         str = '0' + str;
       }
-      return str;
+      return str || "";
     }
 
     function getChecksum(d: UpnQr): string {
@@ -94,20 +95,20 @@ export class UpnFormComponent implements OnInit {
       deposit: '\n',
       withdraw: '\n',
       payerReference: '\n',
-      payerName: this.upnQrForm.value.payerName.trim() + '\n',
-      payerAddress: this.upnQrForm.value.payerAddress.trim() + '\n',
-      payerCity: this.upnQrForm.value.payerCity.trim() + '\n',
-      amount: getAmount(this.upnQrForm.value.amount) + '\n',
+      payerName: this.upnQrForm.value.payerName?.trim() + '\n',
+      payerAddress: this.upnQrForm.value.payerAddress?.trim() + '\n',
+      payerCity: this.upnQrForm.value.payerCity?.trim() + '\n',
+      amount: getAmount(`${this.upnQrForm.value.amount}`) + '\n',
       paymentDate: '\n',
       priority: '\n',
-      purposeCode: this.upnQrForm.value.purposeCode.toUpperCase() + '\n',
-      purpose: this.upnQrForm.value.purpose.trim() + '\n',
-      paymentDue: this.upnQrForm.value.paymentDue.trim() + '\n',
-      payeeIBAN: this.upnQrForm.value.payeeIBAN.split(' ').join('').toUpperCase() + '\n',
-      payeeReference: (this.upnQrForm.value.payeeReferenceModel + this.upnQrForm.value.payeeReference).split(' ').join('').toUpperCase() + '\n',
-      payeeName: this.upnQrForm.value.payeeName.trim() + '\n',
-      payeeAddress: this.upnQrForm.value.payeeAddress.trim() + '\n',
-      payeeCity: this.upnQrForm.value.payeeCity.trim() + '\n',
+      purposeCode: this.upnQrForm.value.purposeCode?.toUpperCase() + '\n',
+      purpose: this.upnQrForm.value.purpose?.trim() + '\n',
+      paymentDue: this.upnQrForm.value.paymentDue?.trim() + '\n',
+      payeeIBAN: this.upnQrForm.value.payeeIBAN?.split(' ').join('').toUpperCase() + '\n',
+      payeeReference: (`${this.upnQrForm.value.payeeReferenceModel}${this.upnQrForm.value.payeeReference}`).split(' ').join('').toUpperCase() + '\n',
+      payeeName: this.upnQrForm.value.payeeName?.trim() + '\n',
+      payeeAddress: this.upnQrForm.value.payeeAddress?.trim() + '\n',
+      payeeCity: this.upnQrForm.value.payeeCity?.trim() + '\n',
     } as UpnQr;
 
     data.checksum = getChecksum(data) + '\n';
@@ -120,15 +121,15 @@ export class UpnFormComponent implements OnInit {
 
   processAmount(): void {
     if (this.upnQrForm.value.amount) {
-      const amount = parseMoney(this.upnQrForm.value.amount.toString()).amount.toFixed(2);
+      const amount = parseMoney(this.upnQrForm.value.amount.toString())?.amount.toFixed(2);
       this.upnQrForm.patchValue({amount});
     }
   }
 
   setUppercase(): void {
-    const purposeCode = this.upnQrForm.value.purposeCode.toString().toUpperCase();
-    const payeeIBAN = this.upnQrForm.value.payeeIBAN.toString().toUpperCase().split(' ').join('');
-    const payeeReference = this.upnQrForm.value.payeeReference.toString().toUpperCase().split(' ').join('');
+    const purposeCode = this.upnQrForm.value.purposeCode?.toString().toUpperCase();
+    const payeeIBAN = this.upnQrForm.value.payeeIBAN?.toString().toUpperCase().split(' ').join('');
+    const payeeReference = this.upnQrForm.value.payeeReference?.toString().toUpperCase().split(' ').join('');
     this.upnQrForm.patchValue({purposeCode, payeeIBAN, payeeReference});
   }
 
@@ -138,6 +139,7 @@ export class UpnFormComponent implements OnInit {
 
   clearForm(): void {
     this.upnQrForm.reset(this.upnQrFormDefault);
-    this.qrCodeValueChanged.emit(null);
+    this.qrCodeValueChanged.emit(undefined);
   }
+
 }
