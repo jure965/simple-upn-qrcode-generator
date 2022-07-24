@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   title = 'simple-upn-qrcode-generator';
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
     this.qrCodeValue = '';
   }
 
-  qrCodeValueChanged(e): void {
+  qrCodeValueChanged(e: string): void {
     this.qrCodeValue = e;
   }
 }
