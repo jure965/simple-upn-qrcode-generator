@@ -6,12 +6,12 @@ import {AppComponent} from './app.component';
 import {UpnFormComponent} from './upn-form/upn-form.component';
 import {UpnQrcodeComponent} from './upn-qrcode/upn-qrcode.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import {MatLegacyFormFieldModule as MatFormFieldModule} from '@angular/material/legacy-form-field';
+import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
+import {MatLegacyButtonModule as MatButtonModule} from '@angular/material/legacy-button';
 import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatLegacyCheckboxModule as MatCheckboxModule} from '@angular/material/legacy-checkbox';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 
 @NgModule({
