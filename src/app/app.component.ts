@@ -10,7 +10,6 @@ import { UpnFormComponent } from './upn-form/upn-form.component';
     imports: [UpnFormComponent, QRCodeModule],
 })
 export class AppComponent implements OnInit {
-  title = 'simple-upn-qrcode-generator';
   qrCodeValue = '';
 
   ngOnInit(): void {

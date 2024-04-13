@@ -27,7 +27,7 @@ export class UpnFormComponent implements OnInit {
 
   @Output() qrCodeValueChanged: EventEmitter<string> = new EventEmitter();
 
-  upnQrForm = this.fb.group({
+  upnQrForm = this.fb.nonNullable.group({
     payerName: ['', [Validators.maxLength(33)]],
     payerAddress: ['', [Validators.maxLength(33)]],
     payerCity: ['', [Validators.maxLength(33)]],
@@ -120,7 +120,7 @@ export class UpnFormComponent implements OnInit {
       purposeCode: this.upnQrForm.value.purposeCode?.toUpperCase() + '\n',
       purpose: this.upnQrForm.value.purpose?.trim() + '\n',
       paymentDue: this.upnQrForm.value.paymentDue?.trim() + '\n',
-      payeeIBAN: this.upnQrForm.value.payeeIBAN?.split(' ').join('').toUpperCase() + '\n',
+      payeeIBAN: (this.upnQrForm.value.payeeIBAN as string)?.split(' ').join('').toUpperCase() + '\n',
       payeeReference: (`${this.upnQrForm.value.payeeReferenceModel}${this.upnQrForm.value.payeeReference}`).split(' ').join('').toUpperCase() + '\n',
       payeeName: this.upnQrForm.value.payeeName?.trim() + '\n',
       payeeAddress: this.upnQrForm.value.payeeAddress?.trim() + '\n',
