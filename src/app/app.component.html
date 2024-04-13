@@ -10,6 +10,7 @@
   </div>
   <div class="upn-string" [innerText]="qrCodeValue" *ngIf="qrCodeValue"></div>
   <div class="upn-qrcode">
-    <app-upn-qrcode [value]="qrCodeValue" *ngIf="qrCodeValue"></app-upn-qrcode>
+    <!-- <app-upn-qrcode [value]="qrCodeValue" *ngIf="qrCodeValue"></app-upn-qrcode> -->
+    <qrcode [qrdata]="'initial'" [width]="256"></qrcode>
   </div>
 </div>

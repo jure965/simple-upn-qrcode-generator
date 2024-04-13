@@ -4,21 +4,19 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {UpnFormComponent} from './upn-form/upn-form.component';
-import {UpnQrcodeComponent} from './upn-qrcode/upn-qrcode.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
-import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {QRCodeModule} from "angularx-qrcode";
 
 @NgModule({
   declarations: [
     AppComponent,
     UpnFormComponent,
-    UpnQrcodeComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +26,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MatInputModule,
     ReactiveFormsModule,
     MatButtonModule,
-    NgxQRCodeModule,
+    QRCodeModule,
     MatCheckboxModule,
     NgxWebstorageModule.forRoot(),
   ],
