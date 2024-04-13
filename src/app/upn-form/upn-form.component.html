@@ -1,22 +1,28 @@
 <form [formGroup]="upnQrForm" (ngSubmit)="onSubmit()">
-  <div *ngIf="showAll">
-    <mat-form-field appearance="fill">
-      <mat-label>Ime plačnika</mat-label>
-      <input matInput formControlName="payerName">
-    </mat-form-field>
-  </div>
-  <div *ngIf="showAll">
-    <mat-form-field appearance="fill">
-      <mat-label>Naslov plačnika</mat-label>
-      <input matInput formControlName="payerAddress">
-    </mat-form-field>
-  </div>
-  <div *ngIf="showAll">
-    <mat-form-field appearance="fill">
-      <mat-label>Kraj plačnika</mat-label>
-      <input matInput formControlName="payerCity">
-    </mat-form-field>
-  </div>
+  @if (showAll) {
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Ime plačnika</mat-label>
+        <input matInput formControlName="payerName">
+      </mat-form-field>
+    </div>
+  }
+  @if (showAll) {
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Naslov plačnika</mat-label>
+        <input matInput formControlName="payerAddress">
+      </mat-form-field>
+    </div>
+  }
+  @if (showAll) {
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Kraj plačnika</mat-label>
+        <input matInput formControlName="payerCity">
+      </mat-form-field>
+    </div>
+  }
   <div>
     <mat-form-field appearance="fill">
       <mat-label>Znesek</mat-label>
@@ -35,12 +41,14 @@
       <input matInput formControlName="purpose">
     </mat-form-field>
   </div>
-  <div *ngIf="showAll">
-    <mat-form-field appearance="fill">
-      <mat-label>Datum plačila</mat-label>
-      <input matInput formControlName="paymentDue">
-    </mat-form-field>
-  </div>
+  @if (showAll) {
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Datum plačila</mat-label>
+        <input matInput formControlName="paymentDue">
+      </mat-form-field>
+    </div>
+  }
   <div>
     <mat-form-field appearance="fill">
       <mat-label>IBAN prejemnika</mat-label>
@@ -57,24 +65,30 @@
       <input matInput formControlName="payeeReference" (blur)="setUppercase()">
     </mat-form-field>
   </div>
-  <div *ngIf="showAll">
-    <mat-form-field appearance="fill">
-      <mat-label>Ime prejemnika</mat-label>
-      <input matInput formControlName="payeeName">
-    </mat-form-field>
-  </div>
-  <div *ngIf="showAll">
-    <mat-form-field appearance="fill">
-      <mat-label>Naslov prejemnika</mat-label>
-      <input matInput formControlName="payeeAddress">
-    </mat-form-field>
-  </div>
-  <div *ngIf="showAll">
-    <mat-form-field appearance="fill">
-      <mat-label>Kraj prejemnika</mat-label>
-      <input matInput formControlName="payeeCity">
-    </mat-form-field>
-  </div>
+  @if (showAll) {
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Ime prejemnika</mat-label>
+        <input matInput formControlName="payeeName">
+      </mat-form-field>
+    </div>
+  }
+  @if (showAll) {
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Naslov prejemnika</mat-label>
+        <input matInput formControlName="payeeAddress">
+      </mat-form-field>
+    </div>
+  }
+  @if (showAll) {
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Kraj prejemnika</mat-label>
+        <input matInput formControlName="payeeCity">
+      </mat-form-field>
+    </div>
+  }
   <div class="upn-button-flex">
     <div>
       <button mat-raised-button type="button" (click)="clearForm()">Počisti</button>
