@@ -58,6 +58,9 @@ export class UpnFormComponent implements OnInit {
     if (retrieve) {
       this.upnQrForm.setValue(retrieve);
     }
+    this.upnQrForm.valueChanges.subscribe(()=> {
+      this.onSubmit();
+    })
   }
 
   onSubmit(): void {
