@@ -1,14 +1,27 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import {UpnQr} from '../upn-qr';
 import parseMoney from 'parse-money';
 import {LocalStorageService} from 'ngx-webstorage';
+import { MatCheckbox } from '@angular/material/checkbox';
+import { MatButton } from '@angular/material/button';
+import { MatInput } from '@angular/material/input';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
 
 
 @Component({
-  selector: 'app-upn-form',
-  templateUrl: './upn-form.component.html',
-  styleUrls: ['./upn-form.component.scss'],
+    selector: 'app-upn-form',
+    templateUrl: './upn-form.component.html',
+    styleUrls: ['./upn-form.component.scss'],
+    standalone: true,
+    imports: [
+        ReactiveFormsModule,
+        MatFormField,
+        MatLabel,
+        MatInput,
+        MatButton,
+        MatCheckbox,
+    ],
 })
 export class UpnFormComponent implements OnInit {
 

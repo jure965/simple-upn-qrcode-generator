@@ -14,24 +14,22 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {QRCodeModule} from "angularx-qrcode";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UpnFormComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    QRCodeModule,
-    MatCheckboxModule,
-    NgxWebstorageModule.forRoot(),
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        QRCodeModule,
+        MatCheckboxModule,
+        NgxWebstorageModule.forRoot(),
+        UpnFormComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
 export class AppModule {
 }
