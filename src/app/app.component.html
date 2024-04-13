@@ -6,14 +6,14 @@
 </div>
 <div class="upn-main">
   <div class="upn-form">
-    <app-upn-form (qrCodeValueChanged)="qrCodeValueChanged($event)"></app-upn-form>
+    <app-upn-form (qrCodeValueChanged)="qrCodeValueChanged($event)" />
   </div>
   @if (qrCodeValue) {
     <div class="upn-string" [innerText]="qrCodeValue"></div>
   }
   <div class="upn-qrcode">
     @if (qrCodeValue) {
-      <qrcode [qrdata]="qrCodeValue" [width]="256"></qrcode>
+      <qrcode [qrdata]="qrCodeValue" [width]="256" />
     }
   </div>
 </div>
