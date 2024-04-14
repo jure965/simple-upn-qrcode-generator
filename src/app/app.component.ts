@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { QRCodeModule } from 'angularx-qrcode';
 import { UpnFormComponent } from './upn-form/upn-form.component';
+import {environment} from "../environments/environment";
 
 @Component({
     selector: 'app-root',
@@ -10,7 +11,8 @@ import { UpnFormComponent } from './upn-form/upn-form.component';
     imports: [UpnFormComponent, QRCodeModule],
 })
 export class AppComponent implements OnInit {
-  qrCodeValue = '';
+  public version: string = environment.version;
+  public qrCodeValue: string = '';
 
   ngOnInit(): void {
     this.qrCodeValue = '';
