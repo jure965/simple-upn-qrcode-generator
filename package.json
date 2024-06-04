@@ -22,6 +22,7 @@
     "angularx-qrcode": "^17.0.0",
     "ngx-webstorage": "^13.0.1",
     "parse-money": "^1.0.12",
+    "prettier": "^3.3.0",
     "rxjs": "^7.8.1",
     "tslib": "^2.6.2",
     "zone.js": "^0.14.4"

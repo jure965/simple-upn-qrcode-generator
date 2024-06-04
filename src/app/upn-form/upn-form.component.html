@@ -1,97 +1,103 @@
 <form [formGroup]="upnQrForm" (ngSubmit)="onSubmit()">
-  @if (showAll) {
+  @if (showAll()) {
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Ime plačnika</mat-label>
-        <input matInput formControlName="payerName">
+        <input matInput formControlName="payerName" />
       </mat-form-field>
     </div>
-  }
-  @if (showAll) {
+
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Naslov plačnika</mat-label>
-        <input matInput formControlName="payerAddress">
+        <input matInput formControlName="payerAddress" />
       </mat-form-field>
     </div>
-  }
-  @if (showAll) {
+
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Kraj plačnika</mat-label>
-        <input matInput formControlName="payerCity">
+        <input matInput formControlName="payerCity" />
       </mat-form-field>
     </div>
   }
   <div>
     <mat-form-field appearance="fill">
       <mat-label>Znesek</mat-label>
-      <input matInput formControlName="amount" (blur)="processAmount()">
+      <input matInput formControlName="amount" (blur)="processAmount()" />
     </mat-form-field>
   </div>
   <div>
     <mat-form-field appearance="fill">
       <mat-label>Koda namena</mat-label>
-      <input matInput formControlName="purposeCode" (blur)="setUppercase()">
+      <input matInput formControlName="purposeCode" (blur)="setUppercase()" />
     </mat-form-field>
   </div>
   <div>
     <mat-form-field appearance="fill">
       <mat-label>Namen plačila</mat-label>
-      <input matInput formControlName="purpose">
+      <input matInput formControlName="purpose" />
     </mat-form-field>
   </div>
-  @if (showAll) {
+  @if (showAll()) {
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Datum plačila</mat-label>
-        <input matInput formControlName="paymentDue">
+        <input matInput formControlName="paymentDue" />
       </mat-form-field>
     </div>
   }
   <div>
     <mat-form-field appearance="fill">
       <mat-label>IBAN prejemnika</mat-label>
-      <input matInput formControlName="payeeIBAN" (blur)="setUppercase()">
+      <input matInput formControlName="payeeIBAN" (blur)="setUppercase()" />
     </mat-form-field>
   </div>
   <div>
     <mat-form-field appearance="fill" class="payee-reference-model">
       <mat-label>Model</mat-label>
-      <input matInput formControlName="payeeReferenceModel" (blur)="setUppercase()">
+      <input
+        matInput
+        formControlName="payeeReferenceModel"
+        (blur)="setUppercase()"
+      />
     </mat-form-field>
     <mat-form-field appearance="fill" class="payee-reference">
       <mat-label>Referenca</mat-label>
-      <input matInput formControlName="payeeReference" (blur)="setUppercase()">
+      <input
+        matInput
+        formControlName="payeeReference"
+        (blur)="setUppercase()"
+      />
     </mat-form-field>
   </div>
-  @if (showAll) {
+  @if (showAll()) {
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Ime prejemnika</mat-label>
-        <input matInput formControlName="payeeName">
+        <input matInput formControlName="payeeName" />
       </mat-form-field>
     </div>
-  }
-  @if (showAll) {
+
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Naslov prejemnika</mat-label>
-        <input matInput formControlName="payeeAddress">
+        <input matInput formControlName="payeeAddress" />
       </mat-form-field>
     </div>
-  }
-  @if (showAll) {
+
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Kraj prejemnika</mat-label>
-        <input matInput formControlName="payeeCity">
+        <input matInput formControlName="payeeCity" />
       </mat-form-field>
     </div>
   }
   <div class="upn-button-flex">
     <div>
-      <button mat-raised-button type="button" (click)="clearForm()">Počisti</button>
+      <button mat-raised-button type="button" (click)="clearForm()">
+        Počisti
+      </button>
     </div>
     <div>
       <mat-checkbox (change)="showAllChange()">Prikaži vsa polja</mat-checkbox>
