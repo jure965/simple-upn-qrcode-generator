@@ -1,23 +1,25 @@
 <div class="upn-header">
   <p>
-    Uporaba aplikacije na lastno odgovornost!
-    Pred plačilom vedno preveri pravilnost podatkov!
+    Uporaba aplikacije na lastno odgovornost! Pred plačilom vedno preveri
+    pravilnost podatkov!
   </p>
 </div>
 <div class="upn-main">
   <div class="upn-form">
     <app-upn-form (qrCodeValueChanged)="qrCodeValueChanged($event)" />
   </div>
-  @if (qrCodeValue) {
-    <div class="upn-string" [innerText]="qrCodeValue"></div>
+  @if (qrCodeValue()) {
+    <div class="upn-string" [innerText]="qrCodeValue()"></div>
   }
   <div class="upn-qrcode">
-    @if (qrCodeValue) {
-      <qrcode [qrdata]="qrCodeValue" [width]="256" />
+    @if (qrCodeValue()) {
+      <qrcode [qrdata]="qrCodeValue()" [width]="256" />
     }
   </div>
 </div>
 <div class="upn-footer">
-  <p>Version {{version}}</p>
-  <p><a href="https://github.com/jure965/simple-upn-qrcode-generator">GitHub</a></p>
+  <p>Version {{ version }}</p>
+  <p>
+    <a href="https://github.com/jure965/simple-upn-qrcode-generator">GitHub</a>
+  </p>
 </div>
