@@ -25,7 +25,7 @@ bootstrapApplication(AppComponent, {
       MatButtonModule,
       MatCheckboxModule,
     ),
-    provideNgxWebstorage(withLocalStorage(),),
+    provideNgxWebstorage(withLocalStorage()),
     provideAnimationsAsync(),
   ],
 }).catch((err) => console.error(err));

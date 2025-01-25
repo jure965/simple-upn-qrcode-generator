@@ -56,19 +56,11 @@
   <div>
     <mat-form-field appearance="fill" class="payee-reference-model">
       <mat-label>Model</mat-label>
-      <input
-        matInput
-        formControlName="payeeReferenceModel"
-        (blur)="setUppercase()"
-      />
+      <input matInput formControlName="payeeReferenceModel" (blur)="setUppercase()" />
     </mat-form-field>
     <mat-form-field appearance="fill" class="payee-reference">
       <mat-label>Referenca</mat-label>
-      <input
-        matInput
-        formControlName="payeeReference"
-        (blur)="setUppercase()"
-      />
+      <input matInput formControlName="payeeReference" (blur)="setUppercase()" />
     </mat-form-field>
   </div>
   @if (showAll()) {
@@ -95,9 +87,7 @@
   }
   <div class="upn-button-flex">
     <div>
-      <button mat-raised-button type="button" (click)="clearForm()">
-        Počisti
-      </button>
+      <button mat-raised-button type="button" (click)="clearForm()">Počisti</button>
     </div>
     <div>
       <mat-checkbox (change)="showAllChange()">Prikaži vsa polja</mat-checkbox>

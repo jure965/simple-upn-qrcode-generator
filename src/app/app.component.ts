@@ -4,11 +4,11 @@ import { UpnFormComponent } from './upn-form/upn-form.component';
 import { environment } from '../environments/environment';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    imports: [UpnFormComponent, QRCodeComponent],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  imports: [UpnFormComponent, QRCodeComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   public version: string = environment.version;

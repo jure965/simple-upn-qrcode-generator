@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  output,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, output, signal } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UpnQr } from '../upn-qr';
 import parseMoney from 'parse-money';
@@ -15,18 +9,11 @@ import { MatInput } from '@angular/material/input';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 
 @Component({
-    selector: 'app-upn-form',
-    templateUrl: './upn-form.component.html',
-    styleUrls: ['./upn-form.component.scss'],
-    imports: [
-        ReactiveFormsModule,
-        MatFormField,
-        MatLabel,
-        MatInput,
-        MatButton,
-        MatCheckbox,
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-upn-form',
+  templateUrl: './upn-form.component.html',
+  styleUrls: ['./upn-form.component.scss'],
+  imports: [ReactiveFormsModule, MatFormField, MatLabel, MatInput, MatButton, MatCheckbox],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UpnFormComponent implements OnInit {
   public qrCodeValueChanged = output<string>();
@@ -36,14 +23,8 @@ export class UpnFormComponent implements OnInit {
     payerAddress: ['', [Validators.maxLength(33)]],
     payerCity: ['', [Validators.maxLength(33)]],
     amount: ['', [Validators.required, Validators.maxLength(11)]],
-    purposeCode: [
-      'GDSV',
-      [Validators.required, Validators.maxLength(4), Validators.minLength(4)],
-    ],
-    purpose: [
-      'Kupoprodaja blaga in storitve',
-      [Validators.required, Validators.maxLength(42)],
-    ],
+    purposeCode: ['GDSV', [Validators.required, Validators.maxLength(4), Validators.minLength(4)]],
+    purpose: ['Kupoprodaja blaga in storitve', [Validators.required, Validators.maxLength(42)]],
     paymentDue: ['', [Validators.maxLength(10), Validators.minLength(10)]],
     payeeIBAN: ['SI56', [Validators.required, Validators.maxLength(34)]],
     payeeReferenceModel: [
@@ -83,10 +64,7 @@ export class UpnFormComponent implements OnInit {
 
   generateQrCodeValue(): string {
     function getAmount(amount: string): string {
-      let str = parseMoney(amount.toString())
-        ?.amount.toFixed(2)
-        .split('.')
-        .join('');
+      let str = parseMoney(amount.toString())?.amount.toFixed(2).split('.').join('');
       while (str && str.length < 11) {
         str = '0' + str;
       }
@@ -137,10 +115,7 @@ export class UpnFormComponent implements OnInit {
       purpose: this.upnQrForm.value.purpose?.trim() + '\n',
       paymentDue: this.upnQrForm.value.paymentDue?.trim() + '\n',
       payeeIBAN:
-        (this.upnQrForm.value.payeeIBAN as string)
-          ?.split(' ')
-          .join('')
-          .toUpperCase() + '\n',
+        (this.upnQrForm.value.payeeIBAN as string)?.split(' ').join('').toUpperCase() + '\n',
       payeeReference:
         `${this.upnQrForm.value.payeeReferenceModel}${this.upnQrForm.value.payeeReference}`
           .split(' ')
@@ -179,22 +154,14 @@ export class UpnFormComponent implements OnInit {
 
   processAmount(): void {
     if (this.upnQrForm.value.amount) {
-      const amount = parseMoney(
-        this.upnQrForm.value.amount.toString(),
-      )?.amount.toFixed(2);
+      const amount = parseMoney(this.upnQrForm.value.amount.toString())?.amount.toFixed(2);
       this.upnQrForm.patchValue({ amount });
     }
   }
 
   setUppercase(): void {
-    const purposeCode = this.upnQrForm.value.purposeCode
-      ?.toString()
-      .toUpperCase();
-    const payeeIBAN = this.upnQrForm.value.payeeIBAN
-      ?.toString()
-      .toUpperCase()
-      .split(' ')
-      .join('');
+    const purposeCode = this.upnQrForm.value.purposeCode?.toString().toUpperCase();
+    const payeeIBAN = this.upnQrForm.value.payeeIBAN?.toString().toUpperCase().split(' ').join('');
     const payeeReference = this.upnQrForm.value.payeeReference
       ?.toString()
       .toUpperCase()
