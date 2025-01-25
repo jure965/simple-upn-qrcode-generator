@@ -15,19 +15,18 @@ import { MatInput } from '@angular/material/input';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 
 @Component({
-  selector: 'app-upn-form',
-  templateUrl: './upn-form.component.html',
-  styleUrls: ['./upn-form.component.scss'],
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatFormField,
-    MatLabel,
-    MatInput,
-    MatButton,
-    MatCheckbox,
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-upn-form',
+    templateUrl: './upn-form.component.html',
+    styleUrls: ['./upn-form.component.scss'],
+    imports: [
+        ReactiveFormsModule,
+        MatFormField,
+        MatLabel,
+        MatInput,
+        MatButton,
+        MatCheckbox,
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UpnFormComponent implements OnInit {
   public qrCodeValueChanged = output<string>();

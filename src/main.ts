@@ -2,9 +2,8 @@ import { enableProdMode, importProvidersFrom } from '@angular/core';
 
 import { environment } from './environments/environment';
 import { AppComponent } from './app/app.component';
-import { NgxWebstorageModule } from 'ngx-webstorage';
+import { provideNgxWebstorage, withLocalStorage } from 'ngx-webstorage';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { QRCodeModule } from 'angularx-qrcode';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -24,10 +23,9 @@ bootstrapApplication(AppComponent, {
       MatInputModule,
       ReactiveFormsModule,
       MatButtonModule,
-      QRCodeModule,
       MatCheckboxModule,
-      NgxWebstorageModule.forRoot(),
     ),
+    provideNgxWebstorage(withLocalStorage(),),
     provideAnimationsAsync(),
   ],
 }).catch((err) => console.error(err));
