@@ -24,8 +24,7 @@
     "ngx-webstorage": "^19.0.1",
     "parse-money": "^1.0.12",
     "rxjs": "^7.8.1",
-    "tslib": "^2.6.2",
-    "zone.js": "^0.15.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@angular/build": "^19.1.4",
