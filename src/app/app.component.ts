@@ -1,24 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-import { QRCodeModule } from 'angularx-qrcode';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { QRCodeComponent } from 'angularx-qrcode';
 import { UpnFormComponent } from './upn-form/upn-form.component';
-import {environment} from "../environments/environment";
+import { environment } from '../environments/environment';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    standalone: true,
-    imports: [UpnFormComponent, QRCodeModule],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  imports: [UpnFormComponent, QRCodeComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public version: string = environment.version;
-  public qrCodeValue: string = '';
-
-  ngOnInit(): void {
-    this.qrCodeValue = '';
-  }
+  public qrCodeValue = signal('');
 
   qrCodeValueChanged(e: string): void {
-    this.qrCodeValue = e;
+    this.qrCodeValue.set(e);
   }
 }

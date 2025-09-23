@@ -8,9 +8,8 @@ describe('UpnFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [UpnFormComponent]
-})
-    .compileComponents();
+      imports: [UpnFormComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UpnFormComponent);
     component = fixture.componentInstance;
